@@ -8,15 +8,18 @@
 
 config_version=4
 
-_global_script_classes=[  ]
-_global_script_class_icons={
-
-}
-
 [application]
 
 config/name="Rpg System"
+run/main_scene="res://Main Scenes/Base Scene/Base.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/resizable=false
+window/size/borderless=true
 
 [rendering]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Main Scenes/Overworld/Scripts/OverworldInit.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 95.9585, 213.967 )
+
+[node name="Base Node" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Map"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Area2D"]
+position = Vector2( 842.105, 265.928 )
+shape = SubResource( 1 )

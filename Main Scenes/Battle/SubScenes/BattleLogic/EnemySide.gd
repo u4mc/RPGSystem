@@ -1,6 +1,6 @@
 extends Node
 
-const player =preload("res://Sub Scenes/BattleLogic/Scripts/Character.gd")
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

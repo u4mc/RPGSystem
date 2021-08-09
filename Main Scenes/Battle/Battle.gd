@@ -9,7 +9,7 @@ var player_lineup=load("res://Main Scenes/Battle/Objects/Lineup.gd")
 var enemy_lineup=load("res://Main Scenes/Battle/Objects/Lineup.gd")
 # Storage for battle objects
 var players=player_lineup.new(3)
-var enemies=enemy_lineup.new()
+#var enemies=enemy_lineup.new()
 
 
 # Called when the node enters the scene tree for the first time.

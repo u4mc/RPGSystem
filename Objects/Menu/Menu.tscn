@@ -3,14 +3,16 @@
 [ext_resource path="res://Objects/Menu/Menu.gd" type="Script" id=1]
 
 [node name="Menu" type="Control"]
+margin_right = 200.0
+margin_bottom = 600.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuOptions" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Panel" type="Panel" parent="."]
+margin_right = 200.0
+margin_bottom = 600.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

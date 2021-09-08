@@ -1,11 +1,15 @@
-extends Node2D
+extends MarginContainer
 
-onready var textLabel=get_node("Container/RichTextLabel")
+onready  var container = get_node(".")
+
+onready var title = get_node("VBoxContainer/MarginContainer/Label")
+
+onready var text = get_node("VBoxContainer/MarginContainer2/Label")
+
 
 func get_text(var text):
 	#gets text from input
-	textLabel.text=text
-
+	pass
 
 func advance():
 	#advances text when stopped. Auto terminates when no more text can be found

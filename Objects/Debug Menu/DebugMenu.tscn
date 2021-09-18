@@ -14,13 +14,13 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_right = 134.0
-margin_bottom = 86.0
+margin_bottom = 110.0
 
 [node name="StartGame" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 134.0
 margin_bottom = 20.0
 
-[node name="Button" type="Button" parent="VBoxContainer/StartGame"]
+[node name="StartButton" type="Button" parent="VBoxContainer/StartGame"]
 margin_right = 83.0
 margin_bottom = 20.0
 text = "Start Game"
@@ -60,10 +60,20 @@ margin_left = 82.0
 margin_right = 111.0
 margin_bottom = 20.0
 
-[node name="Messages" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 72.0
 margin_right = 134.0
-margin_bottom = 86.0
+margin_bottom = 92.0
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 20.0
+text = "Quit"
+
+[node name="Messages" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 134.0
+margin_bottom = 110.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Messages"]
 margin_right = 60.0
@@ -74,3 +84,5 @@ text = "Message:"
 margin_left = 64.0
 margin_right = 64.0
 margin_bottom = 14.0
+[connection signal="pressed" from="VBoxContainer/StartGame/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]

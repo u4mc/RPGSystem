@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Background" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 208.542, 0 )
+polygon = PoolVector2Array( 23.717, 29.3825, -3.19165, 2.47382, 750.251, 291.742, 1611.33, 379.195, 1194.24, 937.551, -90.6449, 742.463, 743.524, 285.015, 750.251, 298.469 )

@@ -16,7 +16,7 @@ var players=player_lineup.new(3)
 func _ready():
 	pass # Replace with function body.
 
-func init():
+func initialise():
 	pass
 	
 

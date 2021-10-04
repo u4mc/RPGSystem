@@ -1,4 +1,3 @@
 extends Resource
 
-export var character:Resource
-
+export var character:Array

@@ -6,6 +6,7 @@ extends Node
 #pull from tres or pushed data
 var character_data:Resource
 
+var character_class:Resource
 
 #char status
 #represents data that is modified within battle

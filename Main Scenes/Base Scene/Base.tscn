@@ -1,17 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Main Scenes/Base Scene/Scripts/BaseScene.gd" type="Script" id=1]
 [ext_resource path="res://Objects/Debug Menu/DebugMenu.tscn" type="PackedScene" id=2]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/test.png-2b0b935732229e5bd5e655f2644b2498.stex"
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
-
-[node name="test" type="Sprite" parent="."]
-position = Vector2( 336.75, 233.75 )
-texture = SubResource( 1 )

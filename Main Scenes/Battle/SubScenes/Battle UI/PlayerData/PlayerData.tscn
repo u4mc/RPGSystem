@@ -15,29 +15,24 @@ __meta__ = {
 }
 
 [node name="Container1" parent="." instance=ExtResource( 1 )]
-char_name = "Ding Chavez"
 
 [node name="Container2" parent="." instance=ExtResource( 1 )]
 margin_left = 511.0
 margin_right = 1018.0
-char_name = "Barb"
 
 [node name="Container3" parent="." instance=ExtResource( 1 )]
 margin_left = 1022.0
 margin_right = 1529.0
-char_name = "Lord Woo Fak Fak"
 
 [node name="Container4" parent="." instance=ExtResource( 1 )]
 margin_top = 94.0
 margin_bottom = 184.0
-char_name = "Hecklord"
 
 [node name="Container5" parent="." instance=ExtResource( 1 )]
 margin_left = 511.0
 margin_top = 94.0
 margin_right = 1018.0
 margin_bottom = 184.0
-char_name = "B B"
 
 [node name="Container6" parent="." instance=ExtResource( 1 )]
 margin_left = 1022.0

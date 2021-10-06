@@ -1,12 +1,8 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Main Scenes/Battle/SubScenes/Char/CharacterData.gd" type="Script" id=1]
+[ext_resource path="res://Main Scenes/Battle/SubScenes/Class/Class.gd" type="Script" id=1]
 [ext_resource path="res://Resources/sprites/character/mage/mage.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-Name = "Test"
-Sprite_Texture = ExtResource( 2 )
-MaxHP = 30
-Strength = 5
-Speed = 5
+sprite = ExtResource( 2 )

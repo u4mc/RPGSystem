@@ -1,3 +1,4 @@
 extends Resource
 
-export var sprite:Texture
+export var sprite:Texture #Default sprite data for class
+

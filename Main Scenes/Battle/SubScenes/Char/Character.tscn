@@ -3,10 +3,8 @@
 [ext_resource path="res://Main Scenes/Battle/SubScenes/Char/Character.gd" type="Script" id=1]
 [ext_resource path="res://Main Scenes/Battle/SubScenes/Char/CharacterStatus.gd" type="Script" id=2]
 
-[node name="Character" type="Position2D"]
+[node name="Character" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Status" type="Node" parent="."]
 script = ExtResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="."]

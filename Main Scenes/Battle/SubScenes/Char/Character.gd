@@ -25,7 +25,9 @@ signal skill
 #side
 #selects if ally or enemy
 
-func initialise(var character_data_arg:Resource, var character_status_arg):
+func initialise(
+var character_data_arg:Resource,
+var character_status_arg):
 	#use to init character
 	character_data=character_data_arg
 	character_status.initialise(character_status_arg)
@@ -42,4 +44,8 @@ func change_health():
 func use_skill():
 	#Access skill list
 	#Send signal down to be processed
+	pass
+
+func return_character():
+	#call if character needs to be packed into a file
 	pass

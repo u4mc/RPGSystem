@@ -4,4 +4,6 @@ extends Resource
 
 export var name:String
 
+export var sprite:Texture
+
 export var skill_list:Array

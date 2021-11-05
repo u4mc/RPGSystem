@@ -4,16 +4,13 @@ extends Resource
 
 export var name:String
 
-export var slot_pos:String
-
 export var sprite_texture:Texture #Overrides character class sprite
 
 export var character_class:Resource
-
-export var character_status:Resource
 
 export var maxHP:int
 
 export var strength:int
 
 export var speed:int
+

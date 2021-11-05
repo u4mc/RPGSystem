@@ -1,9 +1,9 @@
 extends Node
 
-onready var player_data=get_node("Player Data/Control2")
+var UI_data_slot:Array
 func _ready():
-	pass
+	UI_data_slot.append(get_node("Player Data/Control2/Container"))
 
-func initialise(var arg:Array):
-	player_data.initialise(arg)
+func initialise(var player_data:Array):
+	UI_data_slot[0].set_name(player_data[0].name)
 	pass

@@ -7,7 +7,6 @@
 [resource]
 script = ExtResource( 3 )
 name = "Murasaki"
-slot_pos = ""
 sprite_texture = ExtResource( 2 )
 character_class = ExtResource( 1 )
 maxHP = 30

@@ -30,7 +30,6 @@ var character_data_arg:Resource,
 var character_status_arg):
 	#use to init character
 	character_data=character_data_arg
-	if()
 	character_status.initialise(character_status_arg)
 
 func get_hp():

@@ -1,9 +1,13 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Resources/test/battle/TestBattle.gd" type="Script" id=1]
 [ext_resource path="res://Resources/test/player/Murasaki.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/test/player/Erk.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/enemy/magus.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
-player_side = [ ExtResource( 2 ) ]
-enemy_side = [  ]
+player_side = [ ExtResource( 2 ), ExtResource( 3 ) ]
+enemy_side = [ ExtResource( 4 ) ]
+player_side_pos = [ "FrontRight", "BackMid" ]
+enemy_side_pos = [ "FrontLeft" ]

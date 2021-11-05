@@ -11,6 +11,9 @@ func _ready():
 	name_label.text=char_name
 	pass # Replace with function body.
 
+func initialise(player_data_arg):
+	set_name(player_data_arg.name)
+
 func set_name(arg:String):
 	name_label.text=arg
 	pass

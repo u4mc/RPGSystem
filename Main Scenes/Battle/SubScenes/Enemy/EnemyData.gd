@@ -4,6 +4,8 @@ extends Resource
 
 export var name:String
 
+export var slot_pos:String
+
 export var sprite:Texture
 
 export var skill_list:Array

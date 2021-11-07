@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main Scenes/Battle/SubScenes/BattleLogic/BattleLogic.gd" type="Script" id=1]
-[ext_resource path="res://Main Scenes/Battle/SubScenes/BattleLogic/PlayerSide.gd" type="Script" id=2]
+[ext_resource path="res://Main Scenes/Battle/SubScenes/BattleLogic/Scripts/PlayerSide.gd" type="Script" id=2]
 [ext_resource path="res://Main Scenes/Battle/SubScenes/BattleLogic/TurnLogic.gd" type="Script" id=3]
-[ext_resource path="res://Main Scenes/Battle/SubScenes/BattleLogic/EnemySide.gd" type="Script" id=4]
+[ext_resource path="res://Main Scenes/Battle/SubScenes/BattleLogic/Scripts/EnemySide.gd" type="Script" id=4]
 
 [node name="BattleLogic" type="Node"]
 script = ExtResource( 1 )

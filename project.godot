@@ -9,19 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "CharacterStats",
+"base": "Node",
+"class": "Character",
 "language": "GDScript",
-"path": "res://Main Scenes/Battle/SubScenes/Stats/Stats.gd"
+"path": "res://Main Scenes/Battle/Main/SideData/Position/Position.gd"
 }, {
 "base": "Resource",
-"class": "Skill",
+"class": "TestBattle",
 "language": "GDScript",
-"path": "res://Main Scenes/Battle/SubScenes/Skill/Skill.gd"
+"path": "res://Resources/test/battle/TestBattle.gd"
 } ]
 _global_script_class_icons={
-"CharacterStats": "",
-"Skill": ""
+"Character": "",
+"TestBattle": ""
 }
 
 [application]
@@ -29,6 +29,12 @@ _global_script_class_icons={
 config/name="Rpg System"
 run/main_scene="res://Main Scenes/Base Scene/Base.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+TestData="*res://Singleton/TestData/TestData.gd"
+Signals="*res://Singleton/Signals/Signals.gd"
+TerminalLayer="*res://Singleton/Terminal/TerminalLayer.tscn"
 
 [display]
 

@@ -1,5 +1,7 @@
 extends Node
 
+
+class_name Character
 #char data
 #pull from tres or pushed data
 var character_class:Resource
@@ -10,6 +12,8 @@ var character_status=load("res://Main Scenes/Battle/SubScenes/Char/CharacterStat
 var character_ai=load("res://Main Scenes/Battle/SubScenes/Char/CharacterAI.gd").new()
 var CharacterAction=load("res://Main Scenes/Battle/SubScenes/Char/CharacterAction.gd")
 
+var active=false
+
 var initiative:float
 
 signal is_dead
@@ -19,26 +23,6 @@ signal get_input
 signal action(actor,target,skill)
 
 
-var side:String
-var opposing_sides:Array
-
-#skills
-#could potentially get skills from filename, array of filenames
-
-#ai
-#ai should be attached if necessary. Basic ai script chooses moves at random
-#Should be overriden by control if necessary
-
-#side
-#selects if ally or enemy
-
-
-
-func get_action():
-	var character_action=CharacterAction.new()
-	character_action.actor=self
-	if character_ai!=null:
-		return character_action
 
 func get_name():
 	return character_data.name
@@ -46,46 +30,54 @@ func get_name():
 func get_position():
 	return character_data.position
 
-func change_health():
-	#Respond to health modification signal
-	#Modify health
-	#Check if dead, send dead signal if so
-	pass
-	
-func is_damaged():
-	$Sprite.self_modulate="ff8383"
 
+func get_action():
+	var character_action=CharacterAction.new()
+	character_action.actor=self
+	if character_ai!=null:
+		return character_action
+	else:
+		#request character action (self, todo, todo)
+		#send to UI
+		return character_action
+		
+func damage_character(damage_value):
+	Signals.terminal.emit_signal("out",self.get_name()+" has been damaged!")
+
+func _is_damaged():
+	$Sprite.self_modulate="ff8383"
+	
+func is_dead():
+	Signals.Battle.emit_signal("is_dead",self)
+
+func is_active():
+	$ActiveBase.visible=true
+
+func is_not_active():
+	$ActiveBase.visible=false
+
+func activate():
+	$Base.activate()
+	active=true
 func roll_initiative():
 	initiative=character_data.speed*(randf()+1)
 	return initiative
 	
-func use_skill():
-	#Access skill list
-	#Send signal down to be processed
-	pass
-	
-func set_side_data(var side_arg,var opposing_sides_arg):
-	#access through signal
-	side=side_arg
-	opposing_sides=opposing_sides_arg
-
-func test_func():
-	print("Signal test successful")
-	
-func _ready():
-	add_to_group("characters")
-	
-	
-
 func _notification(what):
 	match what:
 		NOTIFICATION_PARENTED:
 			if get_parent().name=="root":
 				print("Get Test Data "+self.name)
 				var data=load(TestData.test_character)
-				_initialise(data)
+				_initialise(data,"PlayerSide")
 
-func _initialise(character_data_arg):
-
+func _initialise(character_data_arg,side):
+	activate()
 	character_data=character_data_arg
+	add_to_group(side)
 	$Sprite.texture=character_data.sprite_texture
+	if(side=="EnemySide"):
+		$Sprite.flip_h=true
+
+func _init():
+	pass

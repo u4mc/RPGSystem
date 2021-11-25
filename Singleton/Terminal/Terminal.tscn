@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Singleton/Terminal/Terminal.gd" type="Script" id=1]
+[ext_resource path="res://Singleton/Terminal/TerminalIn.gd" type="Script" id=2]
+[ext_resource path="res://Singleton/Terminal/TerminalOut.gd" type="Script" id=3]
+
+[node name="Terminal" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 870.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TerminalOut" type="RichTextLabel" parent="."]
+margin_right = 1920.0
+margin_bottom = 182.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_following = true
+script = ExtResource( 3 )
+
+[node name="TerminalIn" type="LineEdit" parent="."]
+margin_top = 186.0
+margin_right = 1920.0
+margin_bottom = 210.0
+size_flags_horizontal = 3
+clear_button_enabled = true
+placeholder_text = "Terminal In"
+caret_blink = true
+caret_blink_speed = 0.5
+script = ExtResource( 2 )
+[connection signal="text_entered" from="TerminalIn" to="TerminalOut" method="_on_TerminalIn_text_entered"]
+[connection signal="text_entered" from="TerminalIn" to="TerminalIn" method="_on_TerminalIn_text_entered"]
+[connection signal="text_entered" from="TerminalIn" to="." method="_on_TerminalIn_text_entered"]

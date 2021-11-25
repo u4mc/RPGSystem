@@ -1,4 +1,4 @@
-extends Node
+extends Object
 
 var max_hp
 var current_hp

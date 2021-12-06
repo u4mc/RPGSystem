@@ -16,9 +16,3 @@ func _ready():
 #	pass
 
 
-func _on_Base_show_detail():
-	self.visible=true
-
-
-func _on_Base_hide_detail():
-	self.visible=false

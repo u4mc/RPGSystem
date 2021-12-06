@@ -6,7 +6,5 @@
 [node name="BattleLogic" type="Node"]
 script = ExtResource( 3 )
 
-[node name="EffectManager" type="Node" parent="."]
-
 [node name="EventStack" type="Node" parent="."]
 script = ExtResource( 1 )

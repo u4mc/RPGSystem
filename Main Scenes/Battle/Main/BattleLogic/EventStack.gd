@@ -4,11 +4,10 @@ var event_stack
 
 signal stack_empty
 
-func process_action(action_arg:Array):
-	for action in action_arg:
-		_poll_reactions(action)
+func process_action(action_arg:Node):
+	Signals.battle.emit_signal("emit_battle_action")
+	pass
 
-	
 
 func _poll_reactions(action):
 	

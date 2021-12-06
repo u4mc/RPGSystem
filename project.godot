@@ -10,9 +10,24 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "BattleAction",
+"language": "GDScript",
+"path": "res://Main Scenes/Battle/Object/BattleAction.gd"
+}, {
+"base": "Reference",
+"class": "BattleEffect",
+"language": "GDScript",
+"path": "res://Main Scenes/Battle/Object/BattleEffect.gd"
+}, {
+"base": "Node",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Main Scenes/Battle/Main/SideData/Position/Position.gd"
+}, {
+"base": "Node",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://Singleton/Skill/Skill.gd"
 }, {
 "base": "Resource",
 "class": "TestBattle",
@@ -20,7 +35,10 @@ _global_script_classes=[ {
 "path": "res://Resources/test/battle/TestBattle.gd"
 } ]
 _global_script_class_icons={
+"BattleAction": "",
+"BattleEffect": "",
 "Character": "",
+"Skill": "",
 "TestBattle": ""
 }
 
@@ -35,6 +53,7 @@ config/icon="res://icon.png"
 TestData="*res://Singleton/TestData/TestData.gd"
 Signals="*res://Singleton/Signals/Signals.gd"
 TerminalLayer="*res://Singleton/Terminal/TerminalLayer.tscn"
+Rng="*res://Singleton/RNG/RNG.gd"
 
 [display]
 

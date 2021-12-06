@@ -7,21 +7,14 @@ class_name Character
 var character_class:Resource
 var character_data:Resource
 
-var skill_list=load("res://Main Scenes/Battle/SubScenes/Skill/SkillList.gd").new()
-var character_status=load("res://Main Scenes/Battle/SubScenes/Char/CharacterStatus.gd").new()
-var character_ai=load("res://Main Scenes/Battle/SubScenes/Char/CharacterAI.gd").new()
-var CharacterAction=load("res://Main Scenes/Battle/SubScenes/Char/CharacterAction.gd")
+var character_status=load("res://Main Scenes/Battle/Main/SideData/Position/CharacterStatus.gd").new()
+var character_ai=load("res://Main Scenes/Battle/Main/SideData/Position/CharacterAI.gd").new()
+var skill_list
 
+var side
 var active=false
 
 var initiative:float
-
-signal is_dead
-signal skill
-signal get_input
-
-signal action(actor,target,skill)
-
 
 
 func get_name():
@@ -30,19 +23,10 @@ func get_name():
 func get_position():
 	return character_data.position
 
-
 func get_action():
-	var character_action=CharacterAction.new()
-	character_action.actor=self
-	if character_ai!=null:
-		return character_action
-	else:
-		#request character action (self, todo, todo)
-		#send to UI
-		return character_action
-		
-func damage_character(damage_value):
-	Signals.terminal.emit_signal("out",self.get_name()+" has been damaged!")
+	print("Get Action")
+	var action=character_ai.get_action(skill_list,side,self)
+	return action
 
 func _is_damaged():
 	$Sprite.self_modulate="ff8383"
@@ -60,9 +44,19 @@ func activate():
 	$Base.activate()
 	active=true
 func roll_initiative():
-	initiative=character_data.speed*(randf()+1)
+	initiative=character_data.speed*Rng.rng.randf_range(0.5,1.5)
 	return initiative
-	
+
+func damage_event(damage_value):
+	character_data.lower_hp(damage_value)
+	if character_data.current_hp==0:
+		pass
+
+func process_event(battle_event):
+	match battle_event.type:
+		battle_event.type.DAMAGE:
+			damage_event(battle_event.value)
+
 func _notification(what):
 	match what:
 		NOTIFICATION_PARENTED:
@@ -71,13 +65,13 @@ func _notification(what):
 				var data=load(TestData.test_character)
 				_initialise(data,"PlayerSide")
 
-func _initialise(character_data_arg,side):
+
+func _initialise(character_data_arg,side_arg):
 	activate()
 	character_data=character_data_arg
-	add_to_group(side)
 	$Sprite.texture=character_data.sprite_texture
+	side=side_arg
 	if(side=="EnemySide"):
 		$Sprite.flip_h=true
-
-func _init():
-	pass
+	
+	Signals.data.emit_signal("request_side_data",self)

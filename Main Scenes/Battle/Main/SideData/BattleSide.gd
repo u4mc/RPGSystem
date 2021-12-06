@@ -1,15 +1,10 @@
 extends Node
 
-#func roll_initiative():
-#	var out:Array = side.values()
-#	for c in out:
-#		c.roll_initiative()
-#		print(c.name)
-#	return out
+
 func get_random_target():
-	
 	#return character
-	pass
+	var targets=get_all_character()
+	return targets[Rng.rng.randi_range(0,targets.size()-1)]
 
 func get_character(position:String):
 	return get_node(position)
@@ -27,13 +22,8 @@ func _initialise(var side_data_arg:Array):
 		get_node(character_data.position)._initialise(character_data,self.name)
 
 func _init():
-	Signals.SideData.connect("damage_character",self,"_damage_character")
+	pass
 
 func _damage_character(position:String,damage_value:int):
 	if get_node(position).active==true:
 		get_node(position).damage_character(damage_value)
-	
-
-func _ready():
-	pass
-	_damage_character("Front",20)

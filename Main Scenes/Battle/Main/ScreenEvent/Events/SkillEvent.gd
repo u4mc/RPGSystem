@@ -1,4 +1,4 @@
-extends "res://Singleton/Signals/BaseSignals.gd"
+extends Node
 
 
 # Declare member variables here. Examples:

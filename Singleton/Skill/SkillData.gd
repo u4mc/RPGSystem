@@ -1,5 +1,6 @@
 extends Reference
 
 
-class SkillData:
-	pass
+export var name:String
+
+export var modifier:int

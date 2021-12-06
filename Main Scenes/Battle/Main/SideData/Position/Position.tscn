@@ -71,8 +71,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="hide_detail" from="Base" to="Detail" method="_on_Base_hide_detail"]
-[connection signal="show_detail" from="Base" to="Detail" method="_on_Base_show_detail"]
-[connection signal="input_event" from="Base/Area2D" to="Base" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Base/Area2D" to="Base" method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Base/Area2D" to="Base" method="_on_Area2D_mouse_exited"]

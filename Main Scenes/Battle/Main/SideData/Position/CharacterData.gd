@@ -7,11 +7,9 @@ export var name:String
 
 export var sprite_texture:Texture #Overrides character class sprite
 
-export var character_class:Resource
+export var max_hp:int
 
-export var skill_list:Dictionary
-
-export var maxHP:int
+var current_hp:int
 
 export var strength:int
 
@@ -19,4 +17,13 @@ export var speed:int
 
 export var position:String
 
-export var action:String
+
+func raise_health(value_arg):
+	current_hp=current_hp+value_arg
+	if current_hp>max_hp:
+		current_hp=max_hp
+
+func lower_health(value_arg):
+	current_hp=current_hp-value_arg
+	if current_hp<0:
+		current_hp=0

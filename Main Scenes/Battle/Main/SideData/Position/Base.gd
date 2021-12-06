@@ -14,12 +14,12 @@ func activate():
 
 func _on_Area2D_mouse_entered():
 	self.self_modulate="62ff00"
-	emit_signal("show_detail")
+	#emit_signal("show_detail")
 
 
 func _on_Area2D_mouse_exited():
 	self.self_modulate="ffffff"
-	emit_signal("hide_detail")
+	#emit_signal("hide_detail")
 
 
 

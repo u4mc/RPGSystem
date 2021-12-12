@@ -20,3 +20,13 @@ func set_skill_data(skill_data_arg):
 func get_skill_message():
 	return attacker[0].get_name()+" attacked "+defender[0].get_name()
 
+func get_attacker():
+	if attacker.size()==1:
+		return attacker[0]
+	return attacker
+	
+func get_defender():
+	return defender
+
+func get_data():
+	return skill_data

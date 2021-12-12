@@ -1,5 +1,5 @@
 extends Node
-var a
+
 func _init():
 	pass
 	
@@ -15,6 +15,5 @@ func _initialise(var battle_arg):
 	$SideData._initialise(battle_arg.player_side,battle_arg.enemy_side)
 	$Background._initialise()
 	$BattleLogic._initialise()
-	
-	Signals.battle.emit_signal("start_round")
+	$AnimationPlayer._initialise()
 	#Signals.terminal.emit_signal("clear")

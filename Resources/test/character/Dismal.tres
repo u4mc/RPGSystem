@@ -7,7 +7,8 @@
 script = ExtResource( 2 )
 name = "Dismal"
 sprite_texture = ExtResource( 1 )
-max_hp = 0
-strength = 20
+max_hp = 100
+current_hp = 100
+strength = 40
 speed = 19
 position = "Front"

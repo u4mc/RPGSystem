@@ -12,7 +12,7 @@ func get_action(skill_list_arg:Resource,side:String,attacker:Node):
 	
 	if ai==null:
 		Signals.data.emit_signal("request_opposite_side",funcref(self,"set_target_side"),side)
-		battle_action.set_skill(default_attack_skill,[attacker],[target_side.get_random_target()])
+		battle_action.set_skill_action(default_attack_skill,[attacker],[target_side.get_random_target()])
 	
 	return battle_action
 	

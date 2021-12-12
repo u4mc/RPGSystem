@@ -16,6 +16,8 @@ var active=false
 
 var initiative:float
 
+func get_data():
+	return character_data
 
 func get_name():
 	return character_data.name
@@ -28,11 +30,10 @@ func get_action():
 	var action=character_ai.get_action(skill_list,side,self)
 	return action
 
+func get_start_of_round_action():
+	return null
 func _is_damaged():
 	$Sprite.self_modulate="ff8383"
-	
-func is_dead():
-	Signals.Battle.emit_signal("is_dead",self)
 
 func is_active():
 	$ActiveBase.visible=true
@@ -43,19 +44,37 @@ func is_not_active():
 func activate():
 	$Base.activate()
 	active=true
+
+func _on_death():
+	pass
+
+func die():
+	_on_death()
+	Signals.terminal.emit_signal("out",get_name()+" has died!")
 func roll_initiative():
 	initiative=character_data.speed*Rng.rng.randf_range(0.5,1.5)
 	return initiative
 
-func damage_event(damage_value):
+func _damage_effect(damage_value):
 	character_data.lower_hp(damage_value)
 	if character_data.current_hp==0:
 		pass
 
-func process_event(battle_event):
-	match battle_event.type:
-		battle_event.type.DAMAGE:
-			damage_event(battle_event.value)
+func process_effect(battle_effect):
+	match battle_effect.type:
+		battle_effect.type_def.DAMAGE:
+			_damage_effect(battle_effect.value)
+			Signals.terminal.emit_signal("out",get_name()+" has taken "+ battle_effect.value as String+ " damage! Health is now "+character_data.get_current_hp() as String)
+			if _check_has_died()==true:
+				var death_action=BattleAction.new()
+				death_action.set_death_action(self)
+				Signals.battle.emit_signal("push_action_stack",death_action)
+
+func _check_has_died():
+	if character_data.get_current_hp()==0:
+		return true
+	else:
+		return false
 
 func _notification(what):
 	match what:

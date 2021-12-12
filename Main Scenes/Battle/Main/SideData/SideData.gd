@@ -7,9 +7,6 @@ func _init():
 	Signals.data.connect("request_side",self,"_request_side")
 	Signals.battle.connect("emit_battle_action",self,"_on_battle_action_emit")
 
-func _damage_character(side,position,damage_value):
-	get_node(side)._damage_character(position,damage_value)
-
 func _notification(what):
 	match what:
 		NOTIFICATION_PARENTED:
@@ -23,24 +20,6 @@ func _initialise(player_side_arg:Array,enemy_side_arg:Array):
 	$PlayerSide._initialise(player_side_arg)
 	$EnemySide._initialise(enemy_side_arg)
 	
-	_test()
-	
-
-func get_turn_order():
-	#Turn order:Array of active position nodes
-	var turn_order:Array
-	turn_order.append_array($PlayerSide.get_all_character())
-	turn_order.append_array($EnemySide.get_all_character())
-	
-	for character in turn_order:
-		character.roll_initiative()
-	turn_order.sort_custom(self,"_sort_initiative")
-	return turn_order
-
-func _sort_initiative(a,b):
-	if a.initiative > b.initiative:
-		return true
-	return false
 
 func _request_turn_order(function_ref:FuncRef):
 	function_ref.call_func(get_turn_order())
@@ -61,13 +40,38 @@ func get_opposite_side(side:String):
 	if side=="EnemySide":
 		return $PlayerSide
 
-func _on_battle_action_emit(battle_action:BattleAction):
-	_process_events(battle_action.get_battle_events)
+func get_turn_order():
+	#Turn order:Array of active position nodes
+	var turn_order:Array
+	turn_order.append_array($PlayerSide.get_all_character())
+	turn_order.append_array($EnemySide.get_all_character())
+	
+	for character in turn_order:
+		character.roll_initiative()
+	turn_order.sort_custom(self,"_sort_initiative")
+	return turn_order
 
-func _process_events(battle_events:Array):
-	for battle_event in battle_events:
-		var target=battle_event.target
-		target.process_event(battle_event)
+func _sort_initiative(a,b):
+	if a.initiative > b.initiative:
+		return true
+	return false
 
-func _test():
-	pass
+func _on_battle_action_emit(battle_action:BattleAction,return_function:FuncRef):
+	match battle_action.type:
+		battle_action.type_def.SKILL:
+			_on_skill_action(battle_action)
+		battle_action.type_def.DEATH:
+			_on_death_action(battle_action)
+	return_function.call_func()
+	
+func _on_skill_action(battle_action:BattleAction):
+	_process_events(battle_action.get_battle_effects())
+
+func _on_death_action(battle_action:BattleAction):
+	battle_action.target.die()
+	#check if all characters are dead
+
+func _process_events(battle_effects:Array):
+	for battle_effect in battle_effects:
+		var target=battle_effect.target
+		target.process_effect(battle_effect)

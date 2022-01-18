@@ -4,6 +4,8 @@ extends Node
 func get_random_target():
 	#return character
 	var targets=get_all_character()
+	if targets.empty():
+		return null
 	return targets[Rng.rng.randi_range(0,targets.size()-1)]
 
 func get_character(position:String):
@@ -27,3 +29,9 @@ func _init():
 func _damage_character(position:String,damage_value:int):
 	if get_node(position).active==true:
 		get_node(position).damage_character(damage_value)
+
+func check_if_all_dead():
+	for c in get_all_character():
+		if c.active==true:
+			return false
+	return true

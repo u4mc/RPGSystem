@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Position.gd" type="Script" id=1]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Base.gd" type="Script" id=2]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Health.gd" type="Script" id=3]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Detail.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 0.329878 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
 
 [node name="Position" type="Position2D"]
 position = Vector2( 922.971, 552.357 )
@@ -17,7 +32,6 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="Base"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base/Area2D"]
-visible = false
 polygon = PoolVector2Array( 120, 0, 0, 60, -120, 0, 0, -60 )
 
 [node name="ActiveBase" type="Polygon2D" parent="Base"]
@@ -71,5 +85,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Button" type="Button" parent="."]
+margin_left = -67.1446
+margin_top = 77.8878
+margin_right = 65.8554
+margin_bottom = 97.8878
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = -67.429
+margin_top = 110.571
+margin_right = 65.571
+margin_bottom = 130.571
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 1 )
+
+[connection signal="input_event" from="Base/Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="input_event" from="Base/Area2D" to="Base" method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Base/Area2D" to="Base" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Base/Area2D" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="mouse_exited" from="Base/Area2D" to="Base" method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

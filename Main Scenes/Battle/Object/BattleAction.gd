@@ -1,7 +1,7 @@
 extends Node
 
 class_name BattleAction
-enum type_def {SKILL,DEATH}
+enum type_def {SKILL,DEATH,END}
 
 var type
 var priority:int #Used when sorting the action stack
@@ -18,8 +18,8 @@ func _set_skill(skill_data_arg:Reference,attacker_arg:Array,defender_arg:Array):
 	
 
 func set_battle_effects(battle_effects_arg:Array):
-	print(self.name+" set battle effects")
 	battle_effects=battle_effects_arg
+	
 func get_skill():
 	return skill
 
@@ -36,3 +36,8 @@ func set_death_action(target_arg:Node):
 func set_skill_action(skill_data_arg:Reference,attacker_arg:Array,defender_arg:Array):
 	type=type_def.SKILL
 	_set_skill(skill_data_arg,attacker_arg,defender_arg)
+
+func set_end_action(victorious_side:Node):
+	type=type_def.END
+	
+	

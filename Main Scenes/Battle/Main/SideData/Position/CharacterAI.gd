@@ -14,9 +14,10 @@ func get_action(skill_list_arg:Resource,side:String,attacker:Node):
 		Signals.data.emit_signal("request_opposite_side",funcref(self,"set_target_side"),side)
 		battle_action.set_skill_action(default_attack_skill,[attacker],[target_side.get_random_target()])
 	
+	if target_side.get_random_target()==null:
+		print("No valid target!")
+		return null
 	return battle_action
 	
 func set_target_side(target_side_arg:Node):
-	print("Set target side")
-	print(target_side_arg.name)
 	target_side=target_side_arg

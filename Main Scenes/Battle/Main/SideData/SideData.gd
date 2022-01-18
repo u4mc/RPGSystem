@@ -55,23 +55,35 @@ func _sort_initiative(a,b):
 	if a.initiative > b.initiative:
 		return true
 	return false
-
-func _on_battle_action_emit(battle_action:BattleAction,return_function:FuncRef):
+func _check_if_all_dead():
+	if $PlayerSide.check_if_all_dead():
+		return $PlayerSide
+	if $EnemySide.check_if_all_dead():
+		return $EnemySide
+	return null
+func _on_battle_action_emit(battle_action:BattleAction):
 	match battle_action.type:
 		battle_action.type_def.SKILL:
 			_on_skill_action(battle_action)
 		battle_action.type_def.DEATH:
 			_on_death_action(battle_action)
-	return_function.call_func()
 	
 func _on_skill_action(battle_action:BattleAction):
-	_process_events(battle_action.get_battle_effects())
+	_process_effects(battle_action.get_battle_effects())
 
 func _on_death_action(battle_action:BattleAction):
 	battle_action.target.die()
 	#check if all characters are dead
+	if _check_if_all_dead()!=null:
+		#add END action to stack
+		var end_action=BattleAction.new()
+		end_action.set_end_action(null)
+		Signals.battle.emit_signal("push_action_stack",end_action)
+		
+func process_action(action):
+	_on_battle_action_emit(action)
 
-func _process_events(battle_effects:Array):
+func _process_effects(battle_effects:Array):
 	for battle_effect in battle_effects:
 		var target=battle_effect.target
 		target.process_effect(battle_effect)

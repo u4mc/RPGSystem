@@ -12,4 +12,6 @@ signal resolve_skill(battle_action,function)
 
 signal push_action_stack(action)
 
+signal position_selected(position)
+
 signal end_battle

@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main Scenes/Battle/Main/BattleUI/BottomBar/SkillBar/SkillBar.gd" type="Script" id=1]
+
+[node name="SkillBar" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -842.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconList" type="HBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+mouse_filter = 2
+alignment = 1
+
+[node name="Title" type="Control" parent="."]
+margin_top = 154.0
+margin_right = 1920.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="TitleLabel" type="RichTextLabel" parent="Title"]
+visible = false
+margin_top = -4.0
+margin_right = 300.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 300, 40 )
+bbcode_enabled = true
+bbcode_text = "[center]Example[/center]"
+text = "Example"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Title/TitleLabel"]
+modulate = Color( 1, 1, 1, 0.223529 )
+margin_right = 300.0
+margin_bottom = 40.0
+
+[node name="Description" type="Control" parent="."]
+margin_top = 198.0
+margin_right = 1920.0
+margin_bottom = 238.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="Description"]
+visible = false
+anchor_left = 0.075
+anchor_right = 0.075
+margin_left = -144.0
+margin_right = 156.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 300, 40 )
+bbcode_enabled = true
+bbcode_text = "[center]Example[/center]"
+text = "Example"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Description/DescriptionLabel"]
+modulate = Color( 1, 1, 1, 0.176471 )
+margin_right = 300.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

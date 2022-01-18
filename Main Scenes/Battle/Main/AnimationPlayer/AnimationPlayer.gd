@@ -20,3 +20,6 @@ func _tick():
 
 func _timeout():
 	print("Timed out!")
+
+func process_action(action:BattleAction):
+	breakpoint

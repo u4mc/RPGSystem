@@ -6,6 +6,7 @@ var side_data
 var battle_logic
 var animation_player
 var battle_ui
+
 func activate(arg):
 	pass
 	

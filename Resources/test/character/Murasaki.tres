@@ -1,14 +1,22 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/CharacterData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/weapon/BasicSword.tres" type="Resource" id=2]
 [ext_resource path="res://Assets/sprites/character/mage/mage.png" type="Texture" id=3]
+[ext_resource path="res://Resources/class/magus.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Attack/BasicAttack.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
 name = "Murasaki"
+character_class = ExtResource( 4 )
+character_level = 2
+position = 2
 sprite_texture = ExtResource( 3 )
 max_hp = 100
-current_hp = 100
 strength = 5
+dexterity = 0
 speed = 10
-position = "Front"
+current_hp = 100
+weapon = ExtResource( 2 )
+attack_list = [ ExtResource( 5 ) ]

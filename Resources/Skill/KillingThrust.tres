@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Action/Skill.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+target_type = 0
+valid_position = [ false, false, false ]
+valid_target = [ false, false, false ]
+target_side = ""
+damage_modifier = 0
+effect_def = [  ]
+uses = 0

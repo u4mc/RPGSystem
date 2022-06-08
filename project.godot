@@ -9,37 +9,49 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "BattleAction",
+"base": "Resource",
+"class": "Action",
 "language": "GDScript",
-"path": "res://Main Scenes/Battle/Object/BattleAction.gd"
+"path": "res://Objects/Action/Action.gd"
 }, {
-"base": "Reference",
-"class": "BattleEffect",
+"base": "Resource",
+"class": "Attack",
 "language": "GDScript",
-"path": "res://Main Scenes/Battle/Object/BattleEffect.gd"
+"path": "res://Objects/Action/Attack.gd"
 }, {
-"base": "Node",
-"class": "Character",
+"base": "Resource",
+"class": "EffectDef",
 "language": "GDScript",
-"path": "res://Main Scenes/Battle/Main/SideData/Position/Position.gd"
+"path": "res://Objects/Action/EffectDef.gd"
 }, {
-"base": "Node",
+"base": "Action",
+"class": "Magic",
+"language": "GDScript",
+"path": "res://Objects/Action/Magic.gd"
+}, {
+"base": "Attack",
 "class": "Skill",
 "language": "GDScript",
-"path": "res://Singleton/Skill/Skill.gd"
+"path": "res://Objects/Action/Skill.gd"
 }, {
 "base": "Resource",
 "class": "TestBattle",
 "language": "GDScript",
 "path": "res://Resources/test/battle/TestBattle.gd"
+}, {
+"base": "Resource",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Objects/Equipment/Weapon/WeaponData.gd"
 } ]
 _global_script_class_icons={
-"BattleAction": "",
-"BattleEffect": "",
-"Character": "",
+"Action": "",
+"Attack": "",
+"EffectDef": "",
+"Magic": "",
 "Skill": "",
-"TestBattle": ""
+"TestBattle": "",
+"Weapon": ""
 }
 
 [application]
@@ -54,6 +66,7 @@ TestData="*res://Singleton/TestData/TestData.gd"
 Signals="*res://Singleton/Signals/Signals.gd"
 TerminalLayer="*res://Singleton/Terminal/TerminalLayer.tscn"
 Rng="*res://Singleton/RNG/RNG.gd"
+Loader="*res://Singleton/Loader/Loader.gd"
 
 [display]
 

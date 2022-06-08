@@ -2,9 +2,10 @@ extends "res://Main Scenes/Battle/Main/BattleState/BaseState.gd"
 
 
 func activate(arg):
+	self.name="RoundStart"
 	print("Activate Round Start")
 	#Populate turn order
-	battle_logic.set_turn_order(side_data.get_turn_order())
+	side_data.set_turn_order()
 	#Get start of round actions
 	print("End Round Start")
 	.next_state("battle_round")

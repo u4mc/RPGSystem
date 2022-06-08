@@ -1,14 +1,20 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Assets/sprites/character/knight/knight.png" type="Texture" id=1]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/CharacterData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/weapon/BasicSword.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Attack/BasicAttack.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 2 )
 name = "Dismal"
+character_level = 0
+position = 0
 sprite_texture = ExtResource( 1 )
-max_hp = 100
-current_hp = 100
+max_hp = 30
 strength = 40
+dexterity = 0
 speed = 19
-position = "Front"
+current_hp = 30
+weapon = ExtResource( 3 )
+attack_list = [ ExtResource( 4 ) ]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sub Scenes/UI/Component/GetAttack/GetAttack.gd" type="Script" id=1]
+
+[node name="GetAttack" type="HBoxContainer"]
+margin_right = 1800.0
+margin_bottom = 210.0
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionSelect" type="VBoxContainer" parent="."]
+margin_right = 791.0
+margin_bottom = 210.0
+size_flags_horizontal = 3
+
+[node name="Buttons" type="GridContainer" parent="ActionSelect"]
+margin_right = 791.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 144 )
+columns = 9
+
+[node name="DetailedInfo" type="Control" parent="ActionSelect"]
+margin_top = 148.0
+margin_right = 791.0
+margin_bottom = 210.0
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ActionSelect/DetailedInfo"]
+margin_right = 412.0
+margin_bottom = 40.0
+text = "Test Detailed information"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TargetInfo" type="Control" parent="."]
+margin_left = 795.0
+margin_right = 1586.0
+margin_bottom = 210.0
+size_flags_horizontal = 3
+
+[node name="Complete" type="Button" parent="."]
+margin_left = 1590.0
+margin_right = 1800.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 210, 0 )
+text = "Complete"
+
+[connection signal="pressed" from="Complete" to="." method="_on_Confirm_pressed"]

@@ -1,14 +1,20 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Assets/sprites/character/fighter/fighter.png" type="Texture" id=1]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/CharacterData.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Attack/BasicAttack.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/weapon/BasicSword.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 2 )
 name = "King"
+character_level = 0
+position = 0
 sprite_texture = ExtResource( 1 )
 max_hp = 100
-current_hp = 100
 strength = 10
+dexterity = 0
 speed = 40
-position = "Back"
+current_hp = 100
+weapon = ExtResource( 4 )
+attack_list = [ ExtResource( 3 ) ]

@@ -8,4 +8,4 @@
 [resource]
 script = ExtResource( 1 )
 player_side = [ ExtResource( 3 ), ExtResource( 2 ) ]
-enemy_side = [ ExtResource( 4 ) ]
+enemy_side = [ ExtResource( 4 ), ExtResource( 4 ) ]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Equipment/Weapon/WeaponData.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Attack/BasicAttack.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Test Sword"
+type = 1
+damage_range_min = 15
+damage_range_max = 30
+strength_scaling = 0.5
+dexterity_scaling = 0.5
+attack_list = [ ExtResource( 2 ) ]

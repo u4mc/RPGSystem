@@ -54,3 +54,7 @@ func _set_targets(targets_arg:Array):
 	targets=targets_arg
 func _set_skill(skill_arg:Skill):
 	skill=skill_arg
+
+
+func _ready():
+	_set_control_state()

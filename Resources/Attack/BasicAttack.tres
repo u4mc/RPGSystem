@@ -7,6 +7,7 @@
 script = ExtResource( 2 )
 effect_type = "Damage"
 modifier = 100
+damage_type = ""
 buff_type = ""
 debuff_type = ""
 

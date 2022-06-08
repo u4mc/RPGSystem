@@ -127,11 +127,11 @@ func _notification(what):
 		NOTIFICATION_PARENTED:
 			if get_parent().name=="root":
 				print("Get Test Data "+self.name)
-				var data=load(TestData.test_character)
+				#var data=load(TestData.test_character)
 				self.position.x=922.971
 				self.position.y=552.357
 				$Test.visible=true
-				_initialise(data,"PlayerSide",false)
+				_initialise(character_data,"PlayerSide",false)
 
 
 func _initialise(character_data_arg,side_arg,invert_arg:bool):

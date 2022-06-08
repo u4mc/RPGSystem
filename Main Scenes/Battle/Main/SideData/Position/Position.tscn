@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Position.gd" type="Script" id=1]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Base.gd" type="Script" id=2]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Health.gd" type="Script" id=3]
+[ext_resource path="res://Resources/test/character/King.tres" type="Resource" id=4]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Detail.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=2]
@@ -64,6 +65,7 @@ tracks/0/keys = {
 
 [node name="Position" type="Position2D"]
 script = ExtResource( 1 )
+character_data = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 2 )
@@ -192,7 +194,7 @@ margin_left = 78.0
 margin_top = 60.0
 margin_right = 122.0
 margin_bottom = 74.0
-text = "asdasd"
+text = "HPValue"
 __meta__ = {
 "_edit_use_anchors_": false
 }

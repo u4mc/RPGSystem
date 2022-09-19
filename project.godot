@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Objects/Action/Action.gd"
 }, {
 "base": "Resource",
+"class": "AnimationAction",
+"language": "GDScript",
+"path": "res://Test/TestAnimation/AnimationTrack/AnimationAction.gd"
+}, {
+"base": "Resource",
 "class": "Attack",
 "language": "GDScript",
 "path": "res://Objects/Action/Attack.gd"
@@ -46,6 +51,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Action": "",
+"AnimationAction": "",
 "Attack": "",
 "EffectDef": "",
 "Magic": "",

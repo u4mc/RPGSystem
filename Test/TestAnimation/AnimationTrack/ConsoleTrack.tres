@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Test/TestAnimation/AnimationTrack/AnimationAction.gd" type="Script" id=1]
+[ext_resource path="res://Test/TestAnimation/AnimationTrack/AnimationTrack.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+function = "_print_console"
+arg = {
+}
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+function = "_print_console"
+arg = {
+}
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 1 )
+function = "_print_console"
+arg = {
+}
+
+[resource]
+script = ExtResource( 2 )
+track = {
+0: [ SubResource( 1 ), SubResource( 2 ) ],
+3: [ SubResource( 3 ) ]
+}

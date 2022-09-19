@@ -52,13 +52,14 @@ func get_valid_targets(position:Node,attack:Attack):
 	var target_side=_get_target_side(position,attack.target_side)
 	for n in 2:
 		if valid_columns[n]:
-			valid_targets.append_array(target_side.get_all_character_from_row(n))
+			valid_targets.append(target_side.get_all_character_from_row(n))
 	return valid_targets
 
 func set_turn_order():
 	#Turn order:Array of active position nodes
-	turn_order.append_array($PlayerSide.get_all_character())
-	turn_order.append_array($EnemySide.get_all_character())
+	turn_order.append($PlayerSide.get_all_character())
+	turn_order.append($EnemySide.get_all_character())
+	breakpoint
 	for character in turn_order:
 		character.roll_initiative()
 	turn_order.sort_custom(self,"_sort_initiative")

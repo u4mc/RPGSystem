@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Position.gd" type="Script" id=1]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Base.gd" type="Script" id=2]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Health.gd" type="Script" id=3]
-[ext_resource path="res://Resources/test/character/King.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/test/character/Murasaki.tres" type="Resource" id=4]
 [ext_resource path="res://Main Scenes/Battle/Main/SideData/Position/Detail.gd" type="Script" id=5]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:self_modulate")
@@ -33,8 +33,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "damage"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:self_modulate")
 tracks/0/interp = 1
@@ -63,14 +62,35 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.517647, 0, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "attack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=5]
+blend_point_0/node = SubResource( 4 )
+blend_point_0/pos = Vector2( 0, 0 )
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+states/Idle/node = SubResource( 5 )
+states/Idle/position = Vector2( 406, 104.224 )
+graph_offset = Vector2( 0, 10.224 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
 [node name="Position" type="Position2D"]
 script = ExtResource( 1 )
-character_data = ExtResource( 4 )
+TEST_character_data = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 2 )
-anims/damage = SubResource( 1 )
+anims/attack = SubResource( 1 )
+anims/damage = SubResource( 2 )
 anims/death = SubResource( 3 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 6 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 7 )
+parameters/Idle/blend_position = Vector2( 0, 0 )
 
 [node name="Base" type="Polygon2D" parent="."]
 color = Color( 1, 1, 1, 0.443137 )
@@ -198,13 +218,12 @@ text = "HPValue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="input_event" from="Base/Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="input_event" from="Base/Area2D" to="Base" method="_on_Area2D_input_event"]
-[connection signal="mouse_entered" from="Base/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="input_event" from="Base/Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="mouse_entered" from="Base/Area2D" to="Base" method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Base/Area2D" to="." method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="Base/Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Base/Area2D" to="Base" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_exited" from="Base/Area2D" to="." method="_on_Area2D_mouse_exited"]
 [connection signal="pressed" from="Test/Anim1" to="." method="_on_Anim1_pressed"]
 [connection signal="pressed" from="Test/Anim2" to="." method="_on_Anim2_pressed"]
 [connection signal="pressed" from="Test/Anim3" to="." method="_on_Anim3_pressed"]

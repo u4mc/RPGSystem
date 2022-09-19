@@ -61,5 +61,3 @@ class DebuffEffect extends Effect:
 	var debuff_effect
 	var debuff_amount
 
-class Test:
-	pass

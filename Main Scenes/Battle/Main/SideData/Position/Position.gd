@@ -1,8 +1,10 @@
 extends Node
-
+export(Resource)var TEST_character_data
+export(String,"PlayerSide","EnemySide")var TEST_side
+export(bool)var TEST_invert
 #char data
 #pull from tres or pushed data
-export(Resource) var character_data
+var character_data
 
 var character_status=load("res://Main Scenes/Battle/Main/SideData/Position/CharacterStatus.gd").new()
 var character_ai=load("res://Main Scenes/Battle/Main/SideData/Position/CharacterAI.gd").new()
@@ -75,8 +77,9 @@ func _destroy():
 func _on_death():
 	_deactivate()
 
-func play_animation(animation:String,args):
-	character_animation.play(animation,args)
+func play_animation(animation:String):
+	#character_animation.play(animation)
+	$AnimationPlayer.play(animation)
 
 func death():
 	var a=$AnimationPlayer.play("death")
@@ -131,15 +134,15 @@ func _notification(what):
 				self.position.x=922.971
 				self.position.y=552.357
 				$Test.visible=true
-				_initialise(character_data,"PlayerSide",false)
+				_initialise(TEST_character_data,TEST_side,TEST_invert)
 
 
-func _initialise(character_data_arg,side_arg,invert_arg:bool):
+func _initialise(character_data_arg,side_arg,invert_arg):
 	activate()
 	character_data=character_data_arg
-	$Sprite.texture=character_data.sprite_texture
 	side=side_arg
 	invert=invert_arg
+	$Sprite.texture=character_data.sprite_texture
 	if(side=="EnemySide"):
 		#$Sprite.flip_h=true
 		pass

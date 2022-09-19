@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main Scenes/Battle/Main/Background/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main Scenes/Battle/Battle.gd" type="Script" id=3]
@@ -13,6 +13,58 @@ script/source = "extends Button
 
 "
 
+[sub_resource type="Animation" id=2]
+resource_name = "AttackTest"
+tracks/0/type = "method"
+tracks/0/path = NodePath("SideData")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:script")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "run_state"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:editor_description")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
 [node name="Battle" type="Node"]
 script = ExtResource( 3 )
 
@@ -20,7 +72,7 @@ script = ExtResource( 3 )
 
 [node name="SideData" parent="." instance=ExtResource( 5 )]
 
-[node name="AnimationPlayer" parent="." instance=ExtResource( 4 )]
+[node name="AnimationPlayer(Dep" parent="." instance=ExtResource( 4 )]
 
 [node name="BattleUI" parent="." instance=ExtResource( 6 )]
 
@@ -34,4 +86,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BattleAnimation" type="AnimationPlayer" parent="."]
+anims/AttackTest = SubResource( 2 )
 [connection signal="pressed" from="BattleUI/Button" to="." method="_on_Button_pressed"]

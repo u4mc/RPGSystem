@@ -53,7 +53,6 @@ func _initialise(var battle_arg):
 	$SideData._initialise(battle_arg.player_side,battle_arg.enemy_side)
 	$BattleUI._initialise()
 	$Background._initialise()
-	$AnimationPlayer._initialise()
 	
 func _process(delta):
 	if active==true||next_state==null:
